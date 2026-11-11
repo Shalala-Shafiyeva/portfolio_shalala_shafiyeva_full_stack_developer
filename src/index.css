@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: 242 244 248;
+  --surface: 255 255 255;
+  --ink: 16 27 52;
+  --onink: 255 255 255;
+  --line: 214 219 229;
+  --mute: 85 96 122;
+  --front: 11 118 120;
+  --back: 179 36 59;
+  --onaccent: 255 255 255;
+  color-scheme: light;
+}
+
+.dark {
+  --paper: 12 18 34;
+  --surface: 19 27 48;
+  --ink: 232 236 245;
+  --onink: 12 18 34;
+  --line: 39 50 77;
+  --mute: 154 166 193;
+  --front: 63 193 196;
+  --back: 240 120 140;
+  --onaccent: 12 18 34;
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: 'Manrope', system-ui, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--front));
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.tk-key { color: #7fd6d8; }
+.tk-str { color: #f2a7b3; }
+.tk-num { color: #f5c76b; }
+.tk-kw  { color: #b9a6ff; }
+.tk-com { color: #8d99b5; }
+
+.code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8125rem;
+  line-height: 1.65;
+}
+
+.caret::after {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 1em;
+  margin-left: 2px;
+  background: #7fd6d8;
+  vertical-align: -2px;
+  animation: blink 1s steps(2) infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  body { transition: none; }
+  .caret::after { animation: none; }
+}
